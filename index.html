@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Imagens para PDF com Rotação e Visualização</title>
+  <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>JPG para PDF</h1>
+    <p class="subtitle">Converta suas imagens JPG para PDF. Ajuste a orientação e as margens.</p>
+    
+    <!-- Área de upload (nova) -->
+    <div class="upload-area" onclick="document.getElementById('fileInput').click()">
+      <h2>Selecionar imagens JPG</h2>
+      <p>ou arraste e solte as imagens JPG aqui</p>
+      <button class="btn">Selecionar Arquivos</button>
+    </div>
+    
+    <!-- Seu input file original (mantido mas escondido) -->
+    <input type="file" id="fileInput" multiple accept="image/jpeg,image/png" style="display: none;" />
+    
+    <!-- Controles de Ordenação -->
+<div class="sort-controls">
+  <label>Organizar por:</label>
+  <select id="sortMethod" class="sort-select">
+    <option value="original">Ordem original</option>
+    <option value="name-asc">Nome (A-Z)</option>
+    <option value="name-desc">Nome (Z-A)</option>
+    <option value="number-asc">Número (1-9)</option>
+    <option value="number-desc">Número (9-1)</option>
+    <option value="date-asc">Data (mais antiga)</option>
+    <option value="date-desc">Data (mais recente)</option>
+  </select>
+</div>
+
+    <!-- Sua div preview original (mantida) -->
+    <div id="preview"></div>
+    
+    <!-- Seu botão de converter (agora com classe btn-convert) -->
+    <button class="btn btn-convert" onclick="convertToPDF()">Converter para PDF</button>
+    <div id="status"></div>
+  </div>
+
+  <!-- Lightbox (mantido igual) -->
+  <div id="lightbox" class="lightbox" style="display:none;">
+    <span class="lightbox-close" onclick="closeLightbox()">×</span>
+    <img id="lightbox-img" src="" alt="Visualização" />
+  </div>
+<script src="script.js"></script>
+
+</body>
+</html>
